@@ -11,8 +11,9 @@ int main(int argc, char** argv) {
   if (argc < 2) {
     fprintf(stderr, "usage: %s <method>\n", argv[0]);
     fprintf(stderr, "method 1: Euclid's algorithm\n");
-    fprintf(stderr, "method 2: binary GCD\n");
-    fprintf(stderr, "method 3: factorization\n");
+    fprintf(stderr, "method 2: substractions\n");
+    fprintf(stderr, "method 3: binary GCD\n");
+    fprintf(stderr, "method 4: factorization\n");
     fprintf(stderr,
             "the execution time is outputted to stderr and is in microseconds\n");
     return 0;

@@ -17,6 +17,13 @@ class EuclidGCD: public GCD {
 };
 
 
+class SubstractionGCD: public GCD {
+  public:
+    BigInt compute(BigInt a, BigInt b);
+};
+
+
+
 class BinaryGCD: public GCD {
   public:
     BigInt compute(BigInt a, BigInt b);
@@ -35,8 +42,10 @@ class GCDFactory {
       if (method == 1) {
         return std::make_unique<EuclidGCD>();
       } else if (method == 2) {
-        return std::make_unique<BinaryGCD>();
+        return std::make_unique<SubstractionGCD>();
       } else if (method == 3) {
+        return std::make_unique<BinaryGCD>();
+      } else if (method == 4) {
         return std::make_unique<FactorizationGCD>();
       }
       return nullptr;
@@ -49,6 +58,17 @@ BigInt EuclidGCD::compute(BigInt a, BigInt b) {
     r = a % b;
     a = b;
     b = r;
+  }
+  return a;
+}
+
+BigInt SubstractionGCD::compute(BigInt a, BigInt b) {
+  while (a != b) {
+    if (a > b) {
+      a -= b;
+    } else {
+      b -= a;
+    }
   }
   return a;
 }
