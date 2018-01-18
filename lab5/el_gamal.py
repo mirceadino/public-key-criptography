@@ -1,7 +1,13 @@
 import random
-import math
 
 BASE = 28
+
+
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a%b
+    return a
+
 
 def encode(plaintext):
     message = 0
@@ -27,7 +33,7 @@ def decode(message):
 def phi(x):
     num_coprimes = 0
     for i in range(1, x):
-        if math.gcd(i, x) == 1:
+        if gcd(i, x) == 1:
             num_coprimes +=1
     return num_coprimes
 
