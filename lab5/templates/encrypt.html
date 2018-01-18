@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript">
+</script>
+  <style type="text/css">
+body { 
+    width: 100%;
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 20%;
+  }
+  </style>
+
+  <title>
+  </title>
+</head>
+
+<body>
+  <h1>ElGamal Encryption</h1>
+  <b>Encrypt</b> | <a href="/decrypt">Decrypt</a><br>
+  <br>
+
+
+  <form name="crypto" id="crypto" method="post" action="/encrypt">
+    Public key:<br>
+    p: <input type="text" name="p" readonly value="{{ p }}" size=10>
+    g: <input type="text" name="g" readonly value="{{ g }}" size=10>
+    ga: <input type="text" name="ga" readonly value="{{ ga }}" size=10><br>
+    Private key: <input type="text" name="private_key" readonly value="{{ private_key }}" size=10><br>
+    <br>
+    Plaintext: <input type="text" name="plaintext" value="{{ plaintext }}" size=100><br>
+    <br>
+    alpha: <input type="text" name="alpha" readonly value="{{ alpha }}" size=10>
+    beta: <input type="text" name="beta" readonly value="{{ beta }}" size=10><br>
+    <input type="submit" name="submit" value="Encrypt">
+  </form>
+
+
+  <div name="warning" id="warning">
+    {{ warning }}
+  </div>
+</body>
+</html>
