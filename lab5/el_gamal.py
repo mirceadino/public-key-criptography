@@ -62,6 +62,6 @@ class ElGamal:
         return alpha, beta
 
     def decrypt(self, alpha, beta):
-        message = invmod(alpha, self._a) * beta % self._p
+        message = (invmod(alpha, self._p) ** self._a) % self._p * beta % self._p
         print(message)
         return decode(message)
