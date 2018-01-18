@@ -1,9 +1,14 @@
 from flask import Flask, request, redirect, render_template, url_for, jsonify
 from el_gamal import ElGamal
-from math import gcd
 
 app = Flask(__name__)
 app.jinja_env.auto_reload = True
+
+
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a%b
+    return a
 
 
 def contains_only_characters_from(text, alphabet):
