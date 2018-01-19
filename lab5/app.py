@@ -107,7 +107,7 @@ def decrypt():
             beta = int(beta)
         except:
             warning = "Invalid ciphertext."
-        if alpha < 0 or alpha >= p or beta < 0 or beta >= p:
+        if alpha <= 0 or alpha >= p or beta < 0 or beta >= p:
             warning = "Invalid ciphertext."
         else:
             plaintext = el_gamal.decrypt(alpha, beta)
