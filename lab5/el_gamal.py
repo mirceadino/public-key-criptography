@@ -62,7 +62,7 @@ class ElGamal:
         print(message)
         k = random.randint(1, self._p - 2)
         alpha = lgpow(self._g, k, self._p)
-        beta = message * lgpow(self._ga, k, self._p)
+        beta = message * lgpow(self._ga, k, self._p) % self._p
         return alpha, beta
 
     def decrypt(self, alpha, beta):

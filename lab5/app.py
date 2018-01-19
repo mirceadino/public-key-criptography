@@ -66,7 +66,10 @@ def encrypt():
             private_key = int(private_key)
         except:
             warning = "Invalid public key."
-        alpha, beta = el_gamal.encrypt(plaintext)
+        if not contains_only_characters_from(plaintext, "_abcdefghijklmnopqrstuvwxyz"):
+            warning = "Invalid plaintext."
+        else:
+            alpha, beta = el_gamal.encrypt(plaintext)
     return render_template('encrypt.html', \
             plaintext=plaintext, \
             p=public_key[0], \
@@ -103,8 +106,11 @@ def decrypt():
             alpha = int(alpha)
             beta = int(beta)
         except:
-            warning = "Invalid public key."
-        plaintext = el_gamal.decrypt(alpha, beta)
+            warning = "Invalid ciphertext."
+        if alpha < 0 or alpha >= p or beta < 0 or beta >= p:
+            warning = "Invalid ciphertext."
+        else:
+            plaintext = el_gamal.decrypt(alpha, beta)
     return render_template('decrypt.html', \
             plaintext=plaintext, \
             p=public_key[0], \
